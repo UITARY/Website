@@ -1,21 +1,3 @@
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.innerHTML = "💗";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.bottom = "0px";
-    heart.style.fontSize = "20px";
-    heart.style.animation = "floatUp 4s linear forwards";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 4000);
-}
-
-
-setInterval(createHeart, 800);
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const left = document.querySelector(".left");
@@ -35,5 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => bloom(left), 800);
     setInterval(() => bloom(right), 800);
 
-});
+    // Floating Hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.textContent = "💗";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        heart.style.fontSize = "20px";
+        heart.style.animation = "floatUp 4s linear forwards";
+        document.body.appendChild(heart);
 
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+
+    setInterval(createHeart, 800);
+
+});
