@@ -16,26 +16,33 @@ function createHeart() {
 
 setInterval(createHeart, 800);
 
-// 🌸 Blooming Side Flowers
-function createBloom(container) {
-    const flower = document.createElement("div");
-    flower.classList.add("bloom-flower");
-    flower.innerHTML = "🌸";
+document.addEventListener("DOMContentLoaded", function () {
 
-    container.appendChild(flower);
+    const leftSide = document.querySelector(".side-flowers.left");
+    const rightSide = document.querySelector(".side-flowers.right");
 
-    // Remove and regrow after delay
-    setTimeout(() => {
-        flower.remove();
-        createBloom(container);
-    }, 4000);
-}
+    function createBloom(container) {
+        if (!container) return;
 
-const leftSide = document.querySelector(".side-flowers.left");
-const rightSide = document.querySelector(".side-flowers.right");
+        const flower = document.createElement("div");
+        flower.classList.add("bloom-flower");
+        flower.innerHTML = "🌸";
 
-// Create multiple flowers on each side
-for (let i = 0; i < 6; i++) {
-    setTimeout(() => createBloom(leftSide), i * 600);
-    setTimeout(() => createBloom(rightSide), i * 600);
-}
+        container.appendChild(flower);
+
+        setTimeout(() => {
+            flower.remove();
+        }, 3500);
+    }
+
+    function startBlooming(container) {
+        setInterval(() => {
+            createBloom(container);
+        }, 800);
+    }
+
+    startBlooming(leftSide);
+    startBlooming(rightSide);
+
+});
+
