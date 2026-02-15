@@ -72,44 +72,56 @@ footer {
 
 }
 
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #ffe6f0;
+    text-align: center;
+}
+
+/* HEADER */
+header {
+    background: #ff4d88;
+    color: white;
+    padding: 30px;
+    font-size: 40px;
+}
+
+/* LETTER */
+.letter {
+    margin: 50px auto;
+    width: 60%;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* SIDE CONTAINERS */
 .side-flowers {
     position: fixed;
     top: 0;
     height: 100vh;
-    width: 120px;
+    width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    z-index: 5;
     pointer-events: none;
-    z-index: 10;
 }
 
-.side-flowers.left {
-    left: 0;
-}
+.left { left: 0; }
+.right { right: 0; }
 
-.side-flowers.right {
-    right: 0;
-}
-
+/* FLOWER STYLE */
 .bloom-flower {
-    font-size: 22px;
+    font-size: 25px;
     transform: scale(0);
-    opacity: 0;
     animation: bloom 2s ease forwards;
 }
 
+/* BLOOM ANIMATION */
 @keyframes bloom {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.4);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
