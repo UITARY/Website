@@ -13,4 +13,29 @@ function createHeart() {
     }, 4000);
 }
 
+
 setInterval(createHeart, 800);
+
+// 🌸 Blooming Side Flowers
+function createBloom(container) {
+    const flower = document.createElement("div");
+    flower.classList.add("bloom-flower");
+    flower.innerHTML = "🌸";
+
+    container.appendChild(flower);
+
+    // Remove and regrow after delay
+    setTimeout(() => {
+        flower.remove();
+        createBloom(container);
+    }, 4000);
+}
+
+const leftSide = document.querySelector(".side-flowers.left");
+const rightSide = document.querySelector(".side-flowers.right");
+
+// Create multiple flowers on each side
+for (let i = 0; i < 6; i++) {
+    setTimeout(() => createBloom(leftSide), i * 600);
+    setTimeout(() => createBloom(rightSide), i * 600);
+}
