@@ -18,31 +18,22 @@ setInterval(createHeart, 800);
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const leftSide = document.querySelector(".side-flowers.left");
-    const rightSide = document.querySelector(".side-flowers.right");
+    const left = document.querySelector(".left");
+    const right = document.querySelector(".right");
 
-    function createBloom(container) {
-        if (!container) return;
-
+    function bloom(container) {
         const flower = document.createElement("div");
-        flower.classList.add("bloom-flower");
-        flower.innerHTML = "🌸";
-
+        flower.className = "bloom-flower";
+        flower.textContent = "🌸";
         container.appendChild(flower);
 
         setTimeout(() => {
             flower.remove();
-        }, 3500);
+        }, 3000);
     }
 
-    function startBlooming(container) {
-        setInterval(() => {
-            createBloom(container);
-        }, 800);
-    }
-
-    startBlooming(leftSide);
-    startBlooming(rightSide);
+    setInterval(() => bloom(left), 800);
+    setInterval(() => bloom(right), 800);
 
 });
 
